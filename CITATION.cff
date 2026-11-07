@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "ZK-SR117: Chunked Zero-Knowledge Attestation of Fair-Lending and Calibration Controls"
+authors:
+  - family-names: Uddin
+    given-names: Mohammad Nasir
+    orcid: "https://orcid.org/0009-0009-0990-4616"
+  - family-names: Anik
+    given-names: Asaduzzaman
+    orcid: "https://orcid.org/0009-0008-5231-4454"
+  - family-names: Bhuiyan
+    given-names: Eklachur Rahman
+    orcid: "https://orcid.org/0009-0006-1424-0373"
+  - family-names: Orpita
+    given-names: Rahnuma Tabassum
+    orcid: "https://orcid.org/0009-0008-8399-6945"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Privacy-Preserving Algorithmic Accountability in Credit Markets: Chunked Zero-Knowledge Attestation of Fair-Lending and Calibration Controls Under SR 11-7"
+  authors:
+    - family-names: Uddin
+      given-names: Mohammad Nasir
+    - family-names: Anik
+      given-names: Asaduzzaman
+    - family-names: Bhuiyan
+      given-names: Eklachur Rahman
+    - family-names: Orpita
+      given-names: Rahnuma Tabassum
+  journal: "IEEE Transactions on Computational Social Systems (submitted)"
+  year: 2026
+  identifiers:
+    - type: other
+      value: "arXiv:2608.02664"
