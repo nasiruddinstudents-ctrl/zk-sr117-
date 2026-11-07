@@ -30,6 +30,8 @@ Table and section numbers refer to the TCSS manuscript.
 
 | Script | What it does |
 |---|---|
+| `02_train_real.py` | First attempt: uniform random N = 64 batch (the unstratified draw described in §VIII-A) |
+| `04_ezkl_attest_v2.py` | EZKL settings, calibration, SRS fetch, prove and verify for a single flat-sum batch |
 | `02_train_real_v2.py` | Trains Model A and draws a nonce-stratified N = 1,024 batch (pre-clipping; used for the original flat-sum result) |
 | `02_train_real_v3.py` | Same as v2 with N = 65,536 (large-N batch for the flat-sum characterization) |
 | `03_build_onnx_circuit_v2.py` | Flat single-ReduceSum circuit |
@@ -37,10 +39,17 @@ Table and section numbers refer to the TCSS manuscript.
 | `05_tree_sweep.py` | Tree-reduction compile/prove sweep on synthetic data matched to the real subgroup prevalence |
 | `11_flatsum_real_sweep.py` | Real-HMDA confirmation of the flat-sum breakdown at N = 2,048 / 4,096 / 8,192 |
 
+### Data preparation
+
+| Script | What it does |
+|---|---|
+| `filter_hmda.py` | Builds `hmda_sample.csv` from the 2022 HMDA export (see Data below) |
+
 ### Data-quality diagnosis (§VIII-B)
 
 | Script | What it does |
 |---|---|
+| `06_chunked_real_v2.py` | Original single-script chunked run at N = 32,768 (before the preprocessing fix), where the chunk failure was first observed |
 | `09_diagnose_chunk4.py` | Inspects the chunk that failed to prove before the preprocessing fix |
 | `10_ablation_test.py` | Removes the suspected sentinel row (`loan_to_value_ratio` z-score ≈ 2,932) and re-proves, confirming the root cause |
 
@@ -59,11 +68,18 @@ Table and section numbers refer to the TCSS manuscript.
 
 This repository does not redistribute HMDA microdata. To reproduce:
 
-1. Download the 2022 Loan Application Register from the FFIEC/CFPB HMDA Data Browser: https://ffiec.cfpb.gov/data-browser/
-2. Keep conventional (`loan_type = 1`), first-lien (`lien_status = 1`), home-purchase (`loan_purpose = 1`), principal-residence (`occupancy_type = 1`) applications that were originated or denied (`action_taken` ∈ {1, 3}).
-3. Save as `hmda_sample.csv` in the repository root with at least these columns: `income`, `loan_amount`, `debt_to_income_ratio`, `loan_to_value_ratio`, `derived_race`, and `action_taken_binary` (1 = originated, 0 = denied).
+1. From the FFIEC/CFPB HMDA Data Browser (https://ffiec.cfpb.gov/data-browser/), download the **2022 nationwide Loan Application Register filtered to loan type 1 (conventional)**. The export is named `loan_types_1_year_2022.csv`; place it in the repository root.
+2. Run `python3 filter_hmda.py`. It writes `hmda_sample.csv`.
 
-The scripts keep single-race applicants (`derived_race` ∈ White, Black or African American, Asian, American Indian or Alaska Native, Native Hawaiian or Other Pacific Islander) and code the protected group as nonwhite = 1, White = 0. After these filters the analysis sample has 409,905 rows; the Model A holdout has 102,477.
+What `filter_hmda.py` does:
+
+- Keeps home-purchase (`loan_purpose = 1`), first-lien (`lien_status = 1`), principal-residence (`occupancy_type = 1`) applications that were originated or denied (`action_taken` ∈ {1, 3}).
+- Reads the file in chunks of 500,000 and **stops once at least 600,000 qualifying rows are collected**, so the pool is the first ~600,000 qualifying records in the file's order, not the full national population.
+- Converts `debt_to_income_ratio` to numbers: HMDA range codes become their midpoint (e.g., `20%-<30%` → 25), one-sided codes become their bound (e.g., `>60%` → 60), and non-numeric codes such as `Exempt` are dropped. Rows missing income, loan amount, DTI or LTV are dropped.
+- Codes the label `action_taken_binary` (1 = originated, 0 = denied).
+- Draws a random sample of 500,000 rows (`random_state=11`).
+
+The modelling scripts then keep single-race applicants (`derived_race` ∈ White, Black or African American, Asian, American Indian or Alaska Native, Native Hawaiian or Other Pacific Islander) and code the protected group as nonwhite = 1, White = 0. This leaves **409,905 rows**; the Model A holdout has 102,477. Because the pool depends on the row order of the downloaded file, reproducing these exact counts requires the same 2022 export.
 
 ## Installation
 
@@ -78,6 +94,9 @@ Tested with ezkl 23.0.5 and Python 3.12 on Apple Silicon.
 ## Reproducing the results
 
 ```bash
+# Data
+python3 filter_hmda.py
+
 # Demographic parity (Table V)
 python3 06_setup_once_clipped.py
 python3 06_driver.py
