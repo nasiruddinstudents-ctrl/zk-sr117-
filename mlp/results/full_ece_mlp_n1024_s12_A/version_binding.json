@@ -1,0 +1,19 @@
+{
+  "A_proof_with_A_key": {
+    "accepted": true,
+    "error": null
+  },
+  "B_proof_with_B_key": {
+    "accepted": true,
+    "error": null
+  },
+  "A_proof_with_B_key": {
+    "accepted": false,
+    "error": "Failed to run verify: [halo2] The constraint system is not satisfied"
+  },
+  "B_proof_with_A_key": {
+    "accepted": false,
+    "error": "Failed to run verify: [halo2] The constraint system is not satisfied"
+  },
+  "binding_confirmed": true
+}

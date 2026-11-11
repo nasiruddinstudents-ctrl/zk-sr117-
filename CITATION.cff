@@ -17,7 +17,7 @@ authors:
 license: MIT
 preferred-citation:
   type: article
-  title: "Privacy-Preserving Algorithmic Accountability in Credit Markets: Chunked Zero-Knowledge Attestation of Fair-Lending and Calibration Controls Under SR 11-7"
+  title: "Privacy-Preserving Supervisory Attestation of Credit Models: Chunked Zero-Knowledge Proofs of Fair-Lending and Calibration Controls Under SR 11-7"
   authors:
     - family-names: Uddin
       given-names: Mohammad Nasir
@@ -27,7 +27,7 @@ preferred-citation:
       given-names: Eklachur Rahman
     - family-names: Orpita
       given-names: Rahnuma Tabassum
-  journal: "IEEE Transactions on Computational Social Systems (submitted)"
+  journal: "IEEE Access (submitted)"
   year: 2026
   identifiers:
     - type: other

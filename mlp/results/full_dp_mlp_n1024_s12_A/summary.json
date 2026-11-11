@@ -1,0 +1,52 @@
+{
+  "config": {
+    "control": "dp",
+    "model_type": "mlp",
+    "hidden": [
+      16,
+      8
+    ],
+    "n_params": 225,
+    "version": "A",
+    "n_per_chunk": 1024,
+    "K": 32,
+    "N_total": 32768,
+    "scale": 12,
+    "logrows": 20,
+    "num_rows": 843818,
+    "test_srs": false,
+    "nonce": "SR117-2026Q3-EXAMINER-NONCE-001",
+    "pk_mb": 9029.8,
+    "holdout_auc": 0.7672848866189612
+  },
+  "chunks_proved": 32,
+  "chunks_requested": 32,
+  "chunks_failed": [],
+  "all_verified": true,
+  "rows_covered": 32768,
+  "attested_stat": 0.029917941049211083,
+  "committed_rows_plaintext_stat": 0.029868534829787463,
+  "circuit_precision_delta": 4.940621942362e-05,
+  "full_holdout_stat": 0.02356575510334802,
+  "sampling_delta": 0.006302779726439445,
+  "total_decision_mismatches": 4.0,
+  "total_prob_sum_abs_err": 0.0,
+  "prove_s_mean": 114.638125,
+  "prove_s_min": 105.537,
+  "prove_s_max": 125.375,
+  "verify_s_total": 37.446,
+  "proof_kb_total": 25070.63,
+  "peak_rss_mb_max": 18776.1,
+  "setup_timings_s": {
+    "train_s": 29.73,
+    "settings_calibrate_compile_s": 7.56,
+    "srs_s": 0.25,
+    "setup_s": 117.54
+  },
+  "aggregated_public_outputs": [
+    5091.0,
+    6166.0,
+    22760.0,
+    26602.0
+  ]
+}

@@ -1,0 +1,7 @@
+control model params n scale logrows pk_MB setup_s prove_s/chunk peak_mem_MB mismatches precision_delta verified
+dp lr 5 1024 16 17 624.3 10.98 7.526 1966.2 1.0 0.0006 True
+dp mlp 225 1024 12 20 9029.8 119.93 120.937 18735.3 1.0 0.0006 True
+dp mlp 225 1024 8 20 9029.8 119.58 118.118 18743.5 3.0 0.0018 True
+dp mlp 225 256 8 18 2257.4 30.55 31.3595 5292.2 1.0 0.0024 True
+ece mlp 225 1024 12 21 19212.0 187.75 192.9085 40906.9 8.0 0.0 True
+ece mlp 225 1024 8 21 19212.0 191.15 195.9675 40554.9 106.0 0.0044 True

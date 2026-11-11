@@ -1,0 +1,1 @@
+{"chunk": 20, "verified": true, "attested": [176.0, 209.0, 712.0, 815.0], "plaintext": [176.0, 209.0, 712.0, 815.0], "count_mismatch": 0.0, "prob_sum_abs_err": 0.0, "witness_s": 2.981, "prove_s": 116.987, "verify_s": 1.1787, "proof_kb": 783.5, "peak_rss_mb": 18487.0}

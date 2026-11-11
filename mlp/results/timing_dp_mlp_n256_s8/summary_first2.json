@@ -1,0 +1,53 @@
+{
+  "config": {
+    "control": "dp",
+    "model_type": "mlp",
+    "hidden": [
+      16,
+      8
+    ],
+    "n_params": 225,
+    "version": "A",
+    "n_per_chunk": 256,
+    "K": 128,
+    "N_total": 32768,
+    "scale": 8,
+    "logrows": 18,
+    "num_rows": 210986,
+    "test_srs": false,
+    "nonce": "SR117-2026Q3-EXAMINER-NONCE-001",
+    "pk_mb": 2257.4,
+    "holdout_auc": 0.7672848866189612
+  },
+  "chunks_proved": 2,
+  "chunks_requested": 2,
+  "chunks_failed": [],
+  "all_verified": true,
+  "rows_covered": 512,
+  "attested_stat": 0.012912482065997155,
+  "committed_rows_plaintext_stat": 0.01047345767575325,
+  "circuit_precision_delta": 0.0024390243902439046,
+  "full_holdout_stat": 0.02356575510334802,
+  "sampling_delta": 0.013092297427594768,
+  "total_decision_mismatches": 1.0,
+  "total_prob_sum_abs_err": 0.0,
+  "prove_s_mean": 31.3595,
+  "prove_s_min": 31.01,
+  "prove_s_max": 31.709,
+  "verify_s_total": 0.6832,
+  "proof_kb_total": 435.27,
+  "peak_rss_mb_max": 5292.2,
+  "setup_timings_s": {
+    "train_s": 29.82,
+    "settings_calibrate_compile_s": 3.93,
+    "srs_s": 72.69,
+    "setup_s": 30.55
+  },
+  "aggregated_public_outputs": [
+    87.0,
+    102.0,
+    355.0,
+    410.0
+  ],
+  "note": "PARTIAL: statistic covers only the chunks proved so far."
+}

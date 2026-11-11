@@ -1,0 +1,46 @@
+{
+  "control": "ece",
+  "model_type": "mlp",
+  "hidden": [
+    16,
+    8
+  ],
+  "n_params": 225,
+  "version": "A",
+  "n_per_chunk": 1024,
+  "K": 32,
+  "N_total": 32768,
+  "scale": 8,
+  "logrows": 21,
+  "final_input_scale": 8,
+  "paper_calibration": false,
+  "num_rows": 1134410,
+  "srs_path": "/root/.ezkl/srs/kzg21.srs",
+  "test_srs": false,
+  "nonce": "SR117-2026Q3-EXAMINER-NONCE-001-ECE",
+  "analysis_rows": 409905,
+  "n_holdout": 102477,
+  "holdout_auc": 0.7672848866189612,
+  "full_holdout_stat": 0.31264348218169197,
+  "committed_rows_plaintext_stat": 0.3117497124003421,
+  "pk_mb": 19212.0,
+  "vk_kb": 12291.0,
+  "clip_low": [
+    1.0,
+    45000.0,
+    20.0,
+    20.635
+  ],
+  "clip_high": [
+    956.0,
+    2045000.0,
+    60.0,
+    103.35072999999998
+  ],
+  "timings_s": {
+    "train_s": 29.35,
+    "settings_calibrate_compile_s": 18.16,
+    "srs_s": 105.62,
+    "setup_s": 191.15
+  }
+}
